@@ -6,3 +6,7 @@
 	path = RTSPtoWebRTC
 	url = https://github.com/deepch/RTSPtoWebRTC
 	branch = master
+[submodule "rtsp-simple-server"]
+	path = rtsp-simple-server
+	url = https://github.com/aler9/rtsp-simple-server
+	branch = main
