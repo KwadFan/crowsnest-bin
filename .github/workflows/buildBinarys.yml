@@ -23,7 +23,13 @@ jobs:
             cd ustreamer
             WITH_OMX=1 make -j"$(nproc)"
 
-    - uses: actions/upload-artifact@v2
+    - name: Setup Go
+      uses: actions/setup-go@v2
       with:
-        name: ustreamer
-        path: ustreamer
+        stable: 'true'
+      run: go version
+
+    #- uses: actions/upload-artifact@v2
+    #  with:
+    #    name: ustreamer
+    #    path: ustreamer
