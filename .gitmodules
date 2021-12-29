@@ -2,3 +2,7 @@
 	path = ustreamer
 	url = https://github.com/pikvm/ustreamer
 	branch = master
+[submodule "RTSPtoWebRTC"]
+	path = RTSPtoWebRTC
+	url = https://github.com/deepch/RTSPtoWebRTC
+	branch = master
