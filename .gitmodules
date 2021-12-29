@@ -1,0 +1,4 @@
+[submodule "ustreamer"]
+	path = ustreamer
+	url = https://github.com/pikvm/ustreamer
+	branch = master
