@@ -8,10 +8,17 @@ jobs:
     runs-on: ubuntu-latest
     steps:
 
+    # Checkout Repository
     - name: Checkout Repository
       uses: actions/checkout@v2
       with:
         submodules: true
+
+    # make bin folder
+    - name: Create bin directory
+      run: |
+        mkdir -p ./bin
+        ls -l
 
     - name: Prepare arm-runner (Raspberry Pi OS "buster" [2021-05-07])
       uses: pguyot/arm-runner-action@v1
