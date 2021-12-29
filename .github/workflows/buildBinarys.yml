@@ -31,6 +31,12 @@ jobs:
     - name: Display Go Version
       run: go version
 
+    - name: Build rtsp-simple-server
+      env: GOOS=linux GOARCH=arm GOARM=6
+      run: |
+        cd rtsp-simple-server
+        go build
+
     #- uses: actions/upload-artifact@v2
     #  with:
     #    name: ustreamer
