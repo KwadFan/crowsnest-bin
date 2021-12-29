@@ -13,7 +13,7 @@ jobs:
       with:
         submodules: true
 
-    - name: Prepare arm-runner (RaspiOS buster)
+    - name: Prepare arm-runner (Raspberry Pi OS "buster" [2021-05-07])
       uses: pguyot/arm-runner-action@v1
       with:
         copy_artifact_path: ustreamer
