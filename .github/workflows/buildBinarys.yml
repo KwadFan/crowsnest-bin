@@ -32,9 +32,9 @@ jobs:
       run: go version
 
     - name: Build rtsp-simple-server
-      env: GOOS=linux GOARCH=arm GOARM=6
       run: |
         cd rtsp-simple-server
+        env GOOS=linux GOARCH=arm GOARM=6
         go build
 
     #- uses: actions/upload-artifact@v2
