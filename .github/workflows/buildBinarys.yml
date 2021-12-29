@@ -27,6 +27,8 @@ jobs:
       uses: actions/setup-go@v2
       with:
         stable: 'true'
+
+    - name: Display Go Version
       run: go version
 
     #- uses: actions/upload-artifact@v2
