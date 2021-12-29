@@ -1,0 +1,29 @@
+name: Build Stream Binarys for crowsnest
+
+on:
+  workflow_dispatch:
+
+jobs:
+  buildbinaries:
+    runs-on: ubuntu-latest
+    steps:
+
+    - name: Checkout Repository
+      uses: actions/checkout@v2
+      with:
+        submodules: true
+
+    - name: Prepare arm-runner (RaspiOS buster)
+      uses: pguyot/arm-runner-action@v1
+      with:
+        copy_artifact_path: ustreamer
+        commands: |
+            sudo apt update
+            sudo apt install --yes git libevent-dev libjpeg8-dev libbsd-dev libraspberrypi-dev libgpiod-dev
+            cd ustreamer
+            WITH_OMX=1 make -j"$(nproc)"
+
+    - uses: actions/upload-artifact@v2
+      with:
+        name: ustreamer
+        path: ustreamer
