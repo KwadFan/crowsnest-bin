@@ -36,6 +36,14 @@ jobs:
         cd rtsp-simple-server
         env GOOS=linux GOARCH=arm GOARM=6
         go build
+        ls -l
+
+    - name: Build RTSPtoWebRTC
+      run: |
+        cd RTSPtoWebRTC
+        env GOOS=linux GOARCH=arm GOARM=6
+        go build
+        ls -l
 
     #- uses: actions/upload-artifact@v2
     #  with:
