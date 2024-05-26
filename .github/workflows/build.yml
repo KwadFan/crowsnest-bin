@@ -21,3 +21,12 @@ jobs:
         run: |
           cd src
           make
+
+      - name: Test hello binary
+        shell: bash
+        run: |
+          cd src
+          ls -al
+          file hello
+          echo "Run hello:\n"
+          ./hello
