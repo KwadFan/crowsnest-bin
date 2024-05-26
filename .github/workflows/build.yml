@@ -148,7 +148,7 @@ jobs:
           export CC="${ARCHGCC}"
           export CFLAGS="-s -O3 -static"
           export LDFLAGS="-static"
-          make -j$(nproc)
+          sudo make -j$(nproc)
 
       - name: Test ustreamer binary
         shell: bash
