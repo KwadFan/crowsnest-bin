@@ -66,7 +66,6 @@ jobs:
         shell: bash
         run: |
           cd ustreamer
-          ls -alh
           file src/ustreamer.bin
           printf "Test ustreamer:\n"
           printf "ustreamer version: %s\n" "$(./ustreamer --version)"
@@ -79,7 +78,6 @@ jobs:
         run: |
           mkdir output
           cp -v ustreamer/src/ustreamer.bin output/ustreamer_amd64
-          ls -lah
 
       # - name: Compress binary
       #   shell: bash
