@@ -14,4 +14,4 @@ jobs:
         shell: bash
         run: |
           sudo apt-get update
-          sudo apt-get install --yes build-essentials make
+          sudo apt-get install --yes build-essential make
