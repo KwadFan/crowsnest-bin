@@ -81,15 +81,15 @@ jobs:
           cp -v ustreamer/src/ustreamer.bin output/
           ls -lah
 
-      - name: Compress binary
-        shell: bash
-        run: |
-          cd output
-          CPU_COUNT="$(nproc)"
-          xz -efkvz9T"${CPU_COUNT}" ustreamer.bin
+      # - name: Compress binary
+      #   shell: bash
+      #   run: |
+      #     cd output
+      #     CPU_COUNT="$(nproc)"
+      #     xz -efkvz9T"${CPU_COUNT}" ustreamer.bin
 
       - name: Upload binary
         uses: actions/upload-artifact@v4
         with:
-          name: ustreamer.bin.xz
-          path: output/ustreamer.bin.xz
+          name: ustreamer.bin
+          path: output/ustreamer.bin
