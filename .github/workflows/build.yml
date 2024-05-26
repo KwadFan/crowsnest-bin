@@ -67,7 +67,7 @@ jobs:
           ls -alh
           file src/ustreamer.bin
           printf "Test ustreamer:\n"
-          printf "ustreamer version: %s" "$(./ustreamer --version)"
+          printf "ustreamer version: %s\n" "$(./ustreamer --version)"
           echo "::group::Print ustreamer help"
           ./ustreamer --help
           echo "::endgroup::"
