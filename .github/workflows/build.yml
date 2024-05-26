@@ -118,7 +118,7 @@ jobs:
         shell: bash
         run: |
           cd ustreamer
-          export CC="${ARCHGCC}"
+          export CC="arm-linux-gnueabihf"
           export CFLAGS="-s -O3 -static"
           export LDFLAGS="-static"
           make -j$(nproc)
