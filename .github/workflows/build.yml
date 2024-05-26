@@ -30,3 +30,35 @@ jobs:
           file hello
           printf "Run hello:\n"
           ./hello
+
+  build-x86-ustreamer:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          repository: "pikvm/ustreamer"
+          ref: "master"
+          path: "ustreamer"
+
+      - name: Install Dependencies
+        shell: bash
+        run: |
+          sudo apt-get update
+          sudo apt-get install --yes build-essential make
+
+      - name: Build ustreamer binary
+        shell: bash
+        run: |
+          cd ustreamer
+          make
+
+      - name: Test hello binary
+        shell: bash
+        run: |
+          cd ustreamer
+          ls -alh
+          #file
+          #printf "Run hello:\n"
+          #./hello
