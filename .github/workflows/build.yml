@@ -13,5 +13,5 @@ jobs:
       - name: Install Dependencies
         shell: bash
         run: |
-          apt-get update
-          apt-get install --yes build-essentials make
+          sudo apt-get update
+          sudo apt-get install --yes build-essentials make
