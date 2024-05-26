@@ -3,9 +3,14 @@ name: build hello
 on: [push]
 
 jobs:
-  build:
+  build-x86:
     runs-on: ubuntu-latest
 
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
+
+      - name: Install Dependencies
+        shell: bash
+        run: |
+          apt-get install build-essentials make
