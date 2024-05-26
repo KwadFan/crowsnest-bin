@@ -78,7 +78,7 @@ jobs:
         shell: bash
         run: |
           mkdir output
-          cp -v ustreamer/src/ustreamer.bin output/
+          cp -v ustreamer/src/ustreamer.bin output/ustreamer_amd64
           ls -lah
 
       # - name: Compress binary
@@ -91,5 +91,5 @@ jobs:
       - name: Upload binary
         uses: actions/upload-artifact@v4
         with:
-          name: ustreamer.bin
-          path: output/ustreamer.bin
+          name: ustreamer_amd64
+          path: output/ustreamer_amd64
