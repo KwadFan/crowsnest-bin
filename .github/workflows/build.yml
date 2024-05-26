@@ -62,7 +62,7 @@ jobs:
           export LDFLAGS="-static"
           make -j$(nproc)
 
-      - name: Test hello binary
+      - name: Test ustreamer binary
         shell: bash
         run: |
           cd ustreamer
