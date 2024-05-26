@@ -50,7 +50,7 @@ jobs:
         run: |
           cd src
           export CC="${ARCHGCC}"
-          export CFLAGS="-O3 -static"
+          export CFLAGS="-static"
           export LDFLAGS="-static"
           make -j$(nproc)
 
