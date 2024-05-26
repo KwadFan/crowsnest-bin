@@ -1,3 +1,6 @@
 # ignore vscode settings
 .vscode
 .vscode/**
+
+# ignore hello binary
+src/hello
