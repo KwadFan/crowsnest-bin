@@ -58,8 +58,7 @@ jobs:
         shell: bash
         run: |
           cd ustreamer
-          export CFLAGS="-O3 -static"
-          make -j$(nproc)
+          CFLAGS="-O3 -static" make -j$(nproc)
 
       - name: Test hello binary
         shell: bash
