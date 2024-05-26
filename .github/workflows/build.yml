@@ -58,13 +58,14 @@ jobs:
         shell: bash
         run: |
           cd ustreamer
-          make
+          make -j$(nproc)
 
       - name: Test hello binary
         shell: bash
         run: |
           cd ustreamer
           ls -alh
-          #file
-          #printf "Run hello:\n"
-          #./hello
+          file src/ustreamer.bin
+          printf "Test ustreamer:\n"
+          ./ustreamer --version
+          ./ustreamer --help
