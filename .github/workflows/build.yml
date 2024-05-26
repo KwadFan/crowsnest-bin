@@ -124,63 +124,63 @@ jobs:
           name: ustreamer_amd64
           path: output/ustreamer_amd64
 
-  build-armhf-ustreamer:
-    runs-on: ubuntu-latest
+  # build-armhf-ustreamer:
+  #   runs-on: ubuntu-latest
 
-    steps:
-      - name: Checkout repository
-        uses: actions/checkout@v4
-        with:
-          repository: "pikvm/ustreamer"
-          ref: "master"
-          path: "ustreamer"
+  #   steps:
+  #     - name: Checkout repository
+  #       uses: actions/checkout@v4
+  #       with:
+  #         repository: "pikvm/ustreamer"
+  #         ref: "master"
+  #         path: "ustreamer"
 
-      - name: Install cross compile toolchain
-        uses: cyberjunk/gha-ubuntu-cross@v4
-        with:
-          arch: armhf
+  #     - name: Install cross compile toolchain
+  #       uses: cyberjunk/gha-ubuntu-cross@v4
+  #       with:
+  #         arch: armhf
 
-      - name: Install ustreamer dependencies
-        shell: bash
-        run: |
-          sudo apt-get update
-          sudo apt-get install --yes libevent-dev:armhf libjpeg-dev:armhf libbsd-dev:armhf
+  #     - name: Install ustreamer dependencies
+  #       shell: bash
+  #       run: |
+  #         sudo apt-get update
+  #         sudo apt-get install --yes libevent-dev:armhf libjpeg-dev:armhf libbsd-dev:armhf
 
-      - name: Build ustreamer binary
-        shell: bash
-        run: |
-          cd ustreamer
-          export CC="${ARCHGCC}"
-          export CFLAGS="-s -O3 -static"
-          export LDFLAGS="-static"
-          sudo make -j$(nproc)
+  #     - name: Build ustreamer binary
+  #       shell: bash
+  #       run: |
+  #         cd ustreamer
+  #         export CC="${ARCHGCC}"
+  #         export CFLAGS="-s -O3 -static"
+  #         export LDFLAGS="-static"
+  #         sudo make -j$(nproc)
 
-      - name: Test ustreamer binary
-        shell: bash
-        run: |
-          cd ustreamer
-          file src/ustreamer.bin
-          printf "Test ustreamer:\n"
-          printf "ustreamer version: %s\n" "$(./ustreamer --version)"
-          echo "::group::Print ustreamer help"
-          ./ustreamer --help
-          echo "::endgroup::"
+  #     - name: Test ustreamer binary
+  #       shell: bash
+  #       run: |
+  #         cd ustreamer
+  #         file src/ustreamer.bin
+  #         printf "Test ustreamer:\n"
+  #         printf "ustreamer version: %s\n" "$(./ustreamer --version)"
+  #         echo "::group::Print ustreamer help"
+  #         ./ustreamer --help
+  #         echo "::endgroup::"
 
-      - name: Copy binary
-        shell: bash
-        run: |
-          mkdir output
-          cp -v ustreamer/src/ustreamer.bin output/ustreamer_amd64
+  #     - name: Copy binary
+  #       shell: bash
+  #       run: |
+  #         mkdir output
+  #         cp -v ustreamer/src/ustreamer.bin output/ustreamer_amd64
 
-      # - name: Compress binary
-      #   shell: bash
-      #   run: |
-      #     cd output
-      #     CPU_COUNT="$(nproc)"
-      #     xz -efkvz9T"${CPU_COUNT}" ustreamer.bin
+  #     # - name: Compress binary
+  #     #   shell: bash
+  #     #   run: |
+  #     #     cd output
+  #     #     CPU_COUNT="$(nproc)"
+  #     #     xz -efkvz9T"${CPU_COUNT}" ustreamer.bin
 
-      - name: Upload binary
-        uses: actions/upload-artifact@v4
-        with:
-          name: ustreamer_amd64
-          path: output/ustreamer_amd64
+  #     - name: Upload binary
+  #       uses: actions/upload-artifact@v4
+  #       with:
+  #         name: ustreamer_amd64
+  #         path: output/ustreamer_amd64
