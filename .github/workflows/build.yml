@@ -31,7 +31,7 @@ jobs:
           printf "Run hello:\n"
           ./hello
 
-  build-x86-ustreamer:
+  build-amd64-ustreamer:
     runs-on: ubuntu-latest
 
     steps:
