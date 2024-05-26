@@ -31,6 +31,33 @@ jobs:
           printf "Run hello:\n"
           ./hello
 
+  build-armhf:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Install cross compile toolchain
+        uses: cyberjunk/gha-ubuntu-cross@v4
+        with:
+          arch: armhf
+
+      - name: Build hello binary
+        shell: bash
+        run: |
+          cd src
+          make
+
+      - name: Test hello binary
+        shell: bash
+        run: |
+          cd src
+          ls -al
+          file hello
+          printf "Run hello:\n"
+          ./hello
+
   build-amd64-ustreamer:
     runs-on: ubuntu-latest
 
