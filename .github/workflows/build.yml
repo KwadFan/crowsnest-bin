@@ -49,7 +49,7 @@ jobs:
         shell: bash
         run: |
           cd src
-          export CC="${ARCHGCC}"
+          export CC="arm-linux-gnueabihf"
           export CFLAGS="-static"
           export LDFLAGS="-static"
           make -j$(nproc)
